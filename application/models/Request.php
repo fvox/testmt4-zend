@@ -29,5 +29,31 @@ class Application_Model_Request
         );
     }
 
+    public function getRequests($orderBy, $order) {
+        if (!isset($orderBy)) {
+            $orderBy = '_id';
+        }
+        
+        if (!isset($order)) {
+            $order = 'DESC';
+        }
+        
+        if ($order == 'DESC') {
+            $order = -1;
+        }
+        elseif ($order == 'ASC') {
+            $order = 1;
+        }
+        else {
+            throw new Exception("O parâmetro '\$order' deve conter o valor 'DESC' ou 'ASC'.");
+        }
+
+        $resultSet = $this->mongo->selectDB($this->database)
+                ->selectCollection($this->collection)
+                ->find()
+                ->sort(array($orderBy => $order));
+        
+        return $resultSet;
+    }
 }
 
