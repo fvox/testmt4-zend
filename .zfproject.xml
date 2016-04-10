@@ -27,6 +27,9 @@
         <controllerFile controllerName="Filme">
           <actionMethod actionName="index"/>
           <actionMethod actionName="cadastrar"/>
+          <actionMethod actionName="poster"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
         </controllerFile>
         <controllerFile controllerName="Global">
           <actionMethod actionName="index"/>
@@ -101,6 +104,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Acesso">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Filme">
+            <viewScriptFile forActionName="poster"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Filme">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Filme">
+            <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
