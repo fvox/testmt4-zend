@@ -10,7 +10,6 @@ class GlobalControllerPlugin extends Zend_Controller_Plugin_Abstract {
 
         $request = new Application_Model_Request();
         $request->addRequest($uri, $ipAddr, $protocol, $method);
-        //print_r($this->getRequest());
     }
 }
 
