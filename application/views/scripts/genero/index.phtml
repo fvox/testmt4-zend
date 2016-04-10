@@ -1,0 +1,32 @@
+<br /><br />
+
+<div id="view-content">
+  <h2>Generos</h2>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->generos as $produtora): ?>
+      <tr>
+        <td><?php echo $produtora->id ?></td>
+        <td><?php echo $produtora->nome ?></td>
+        <td><?php echo $produtora->descricao ?></td>
+        <td>
+            <a href="genero/edit/id/<?php echo $produtora->id ?>" class="btn btn-default btn-xs">editar</a>
+            <form style="display: inline;" method="POST" action="genero/delete"><input type="hidden" name="id" value="<?php echo $produtora->id ?>"><button type="submit" class="btn btn-default btn-xs">deletar</button></form>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  <p></p>
+  <a class="btn btn-default" href="/genero/cadastrar">Cadastrar</a>
+  <!-- <button type="submit" class="btn btn-default">Cadastrar</button> -->
+
+</div>
