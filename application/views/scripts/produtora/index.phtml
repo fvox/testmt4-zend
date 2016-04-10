@@ -17,7 +17,7 @@
       <tr>
         <td><?php echo $produtora->id ?></td>
         <td><?php echo $produtora->nome ?></td>
-        <td><img height="50" width="50" src="produtora/logo/id/<?php echo $produtora->id ?>"></td>
+        <td><img height="50" width="50" src="<?php echo $this->url(array('controller' => 'produtora', 'action' => 'logo', 'id' => $produtora->id)) ?> produtora/logo/id/<?php echo $produtora->id ?>"></td>
         <td><?php echo $produtora->descricao ?></td>
         <td>
             <a href="produtora/edit/id/<?php echo $produtora->id ?>" class="btn btn-default btn-xs">editar</a>
