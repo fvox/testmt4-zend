@@ -1,0 +1,39 @@
+<br /><br />
+
+<div id="view-content">
+  <h2>Filmes</h2>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Produtora</th>
+        <th>Gênero</th>
+        <th>Ano de lançamento</th>
+        <th>Sinopse</th>
+        <th>Poster</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->filmes as $filme): ?>
+      <tr>
+        <td><?php echo $filme->id ?></td>
+        <td><?php echo $filme->nome ?></td>
+        <td><?php echo $filme->produtora_id ?></td>
+        <td><?php echo $filme->genero_id ?></td>
+        <td><?php echo $filme->ano ?></td>
+        <td><?php echo $filme->sinopse ?></td>
+        <td><img height="50" width="50" src="filme/poster/id/<?php echo $filme->id ?>"></td>
+        <td>
+            <a href="filme/edit/id/<?php echo $filme->id ?>" class="btn btn-default btn-xs">editar</a>
+            <form style="display: inline;" method="POST" action="filme/delete"><input type="hidden" name="id" value="<?php echo $filme->id ?>"><button type="submit" class="btn btn-default btn-xs">deletar</button></form>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  <p></p>
+  <a class="btn btn-default" href="/filme/cadastrar">Cadastrar</a>
+  <!-- <button type="submit" class="btn btn-default">Cadastrar</button> -->
+
+</div>
