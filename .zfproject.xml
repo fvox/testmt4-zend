@@ -31,6 +31,9 @@
         <controllerFile controllerName="Global">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Acesso">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Produtora"/>
@@ -48,6 +51,7 @@
           <dbTableFile dbTableName="Produtora"/>
           <dbTableFile dbTableName="Filme"/>
         </dbTableDirectory>
+        <modelFile modelName="Request"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -93,6 +97,9 @@
             <viewScriptFile forActionName="cadastrar"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Global">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acesso">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
