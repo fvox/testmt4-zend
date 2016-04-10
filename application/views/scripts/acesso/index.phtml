@@ -1,16 +1,15 @@
 <br /><br />
-
 <div id="view-content">
   <h2>Access Log</h2>            
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Url</th>
-        <th>Endereço de IP</th>
-        <th>Data de acesso</th>
-        <th>Protocolo</th>
-        <th>Método</th>
+        <th class="desc" data-sort-field-name='_id'>ID</th>
+        <th class="desc" data-sort-field-name='uri'>Url</th>
+        <th class="desc" data-sort-field-name='ipAddr'>Endereço de IP</th>
+        <th class="desc" data-sort-field-name='accessDate'>Data de acesso</th>
+        <th class="desc" data-sort-field-name='protocol'>Protocolo</th>
+        <th class="desc" data-sort-field-name='method'>Método</th>
       </tr>
     </thead>
     <tbody>
@@ -27,3 +26,54 @@
     </tbody>
   </table>
 </div>
+
+<style>
+  th[data-sort-field-name] {
+    cursor: pointer;
+  }
+
+  th[data-sort-field-name].asc::before{
+    content: " ▲";
+  }
+  th[data-sort-field-name].desc::before{
+    content: " ▼";
+  }
+  </style>
+  <script>
+  var pageName = 'acesso';
+  var urlVars =  (function(a) {
+    if (a == "") return {};
+    var b = {};
+    for (var i = 0; i < a.length; ++i)
+    {
+      var p=a[i].split('=', 2);
+      if (p.length == 1)
+      b[p[0]] = "";
+      else
+      b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+    }
+    return b;
+  })(window.location.search.substr(1).split('&'));
+
+  var sortField=urlVars['orderBy'];
+  var sortOrder=(urlVars['order'] || 'asc').toLowerCase();
+  jQuery('th[data-sort-field-name]').each(function(){
+    var name = jQuery(this).attr('data-sort-field-name');
+    if(name === sortField){
+      if(sortOrder === 'asc'){
+        jQuery(this).removeClass('desc').addClass('asc');
+      }else{
+        jQuery(this).removeClass('asc').addClass('desc');
+      }
+    }
+    jQuery(this).click(function(){
+      var order = 'ASC';
+      if (jQuery(this).hasClass('asc')) {
+        order = 'DESC';
+      }
+      urlVars['orderBy'] = name;
+      urlVars['order'] = order;
+      window.location = pageName+'?'+jQuery.param(urlVars);
+    });
+  });
+</script>
