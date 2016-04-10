@@ -1,0 +1,91 @@
+<?php echo $this->doctype() ?>
+
+<html lang="en">
+  <head>
+    <?php echo $this->headMeta() ?>
+
+    <?php echo $this->headTitle("MT4 Software") ?>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <?php $this->headLink()->appendStylesheet("/css/bootstrap.css") ?>
+    <?php $this->headLink()->appendStylesheet("/css/bootstrap-responsive.css") ?>
+    <?php echo $this->headLink() ?>
+    
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+
+    <!-- Le javascript -->
+    <?php $this->headScript()->appendFile("https://code.jquery.com/jquery-1.12.3.min.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-transition.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-modal.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-alert.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-dropdown.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-scrollspy.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-tab.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-tooltip.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-popover.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-button.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-collapse.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-carousel.js") ?>
+    <?php $this->headScript()->appendFile("/js/bootstrap-typeahead.js") ?>
+    <?php echo $this->headScript() ?>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    // -----------------------------------------------------------------------
+    $.each($('#navbar').find('li'), function() {
+        $(this).toggleClass('active', 
+            window.location.pathname.indexOf($(this).find('a').attr('href')) > -1);
+    });
+});
+    </script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">MT4</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, true) ?>">Home</a></li>
+              <li><a href="<?php echo $this->url(array('controller' => 'produtora', 'action' => 'index'), null, true) ?>">Produtoras</a></li>
+              <li><a href="<?php echo $this->url(array('controller' => 'genero', 'action' => 'index'), null, true) ?>">Generos</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+<?php echo $this->layout()->content; ?>
+    </div> <!-- /container -->
+  </body>
+</html>
