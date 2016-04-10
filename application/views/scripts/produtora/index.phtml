@@ -1,0 +1,34 @@
+<br /><br />
+
+<div id="view-content">
+  <h2>Produtoras</h2>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Logo</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->produtoras as $produtora): ?>
+      <tr>
+        <td><?php echo $produtora->id ?></td>
+        <td><?php echo $produtora->nome ?></td>
+        <td><img height="50" width="50" src="produtora/logo/id/<?php echo $produtora->id ?>"></td>
+        <td><?php echo $produtora->descricao ?></td>
+        <td>
+            <a href="produtora/edit/id/<?php echo $produtora->id ?>" class="btn btn-default btn-xs">editar</a>
+            <form style="display: inline;" method="POST" action="produtora/delete"><input type="hidden" name="id" value="<?php echo $produtora->id ?>"><button type="submit" class="btn btn-default btn-xs">deletar</button></form>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+  <p></p>
+  <a class="btn btn-default" href="/produtora/cadastrar">Cadastrar</a>
+  <!-- <button type="submit" class="btn btn-default">Cadastrar</button> -->
+
+</div>
