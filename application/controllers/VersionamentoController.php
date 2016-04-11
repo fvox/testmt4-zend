@@ -80,10 +80,15 @@ class VersionamentoController extends Zend_Controller_Action
         $versioningPath = $versioning['path'];
 
         $files = glob($versioningPath . "/*_" . $filename);
-        print_r($files);
+        
+        $diffData = array();   
+        foreach ($files as $file) {
+            $basename = basename($file);
+            $diffData[$basename] = file_get_contents($file);
+        }
+        
+        $this->view->diffData = $diffData;
     }
-
-
 }
 
 
