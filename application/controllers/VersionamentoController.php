@@ -31,5 +31,15 @@ class VersionamentoController extends Zend_Controller_Action
 
         $this->view->files = $files;
     }
+
+    public function cadastrarAction()
+    {
+        $form = new Application_Form_Versionamento();
+        $this->view->form = $form;
+    }
+
+
 }
+
+
 
