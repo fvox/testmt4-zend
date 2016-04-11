@@ -22,7 +22,7 @@ class VersionamentoController extends Zend_Controller_Action
             $basename = basename($files[$i]);
 
             // Removendo a informação de hora/data do versionamento do começo do arquivo.
-            //$basename = preg_replace('', $i, $totalFiles)
+            $basename = preg_replace('/^\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}_/', "", $basename);
             $files[$i] = $basename;
         }
 
