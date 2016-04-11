@@ -62,11 +62,13 @@ class FilmeController extends Zend_Controller_Action
         
         $poster = $row['poster'];
         
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+
         header("Content-type: image");
         echo $poster;
         
-        exit();
-
+        return;
     }
 
     public function editAction()

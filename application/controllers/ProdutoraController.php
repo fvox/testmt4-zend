@@ -59,9 +59,13 @@ class ProdutoraController extends Zend_Controller_Action
         
         $logo = $row['logo'];
         
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        
         header("Content-type: image");
         echo $logo;
-        exit();
+        
+        return ;
     }
 
     public function deleteAction()
