@@ -12,13 +12,17 @@ class Application_Form_Produtora extends Zend_Form
         
         $nome = new Zend_Form_Element_Text('nome');
         $nome->setRequired(true)
-                ->addValidator('NotEmpty');
+                ->addValidator('NotEmpty')
+                ->setLabel("Nome");
         
         $logo = new Zend_Form_Element_File('logo');
-        $logo->setRequired(true);
+        $logo->setRequired(true)
+                ->setLabel('Logo');
         
         $descricao = new Zend_Form_Element_Textarea('descricao');
-        $descricao->setRequired(true);
+        $descricao->setRequired(true)
+                ->setLabel('Descrição')
+                ->setAttrib('rows', 5);
         
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('value', 'Enviar');
