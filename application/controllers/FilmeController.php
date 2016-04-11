@@ -12,7 +12,9 @@ class FilmeController extends Zend_Controller_Action
     {
         $filmes = new Application_Model_DbTable_Filme();
         
-        $this->view->filmes = $filmes->fetchAll();
+        //$this->view->filmes = $filmes->fetchAll();
+        //print_r($filmes->getAll());
+        $this->view->filmes = $filmes->getAll();
     }
 
     public function cadastrarAction()

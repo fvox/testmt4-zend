@@ -34,6 +34,23 @@ class Application_Model_DbTable_Filme extends Zend_Db_Table_Abstract
     public function deleteFilme($id) {        
         $this->delete(array('id = ?' => (int) $id));
     }
+    
+    public function getAll() {
+        $select = $this->select();
+        
+        $select->setIntegrityCheck(false);
+        $select->from($this->_name);
+        
+        $select->joinLeft('produtora', 'filme.produtora_id = produtora.id', array('produtora_nome' => 'nome'));
+        $select->joinLeft('genero', 'filme.genero_id = genero.id', array('genero_nome' => 'nome'));
+        
+        $rows = $this->fetchAll($select);
+        
+        return $rows;
+    }
+        
+        
+    
 
 }
 
