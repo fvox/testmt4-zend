@@ -47,7 +47,8 @@ class Application_Form_Filme extends Zend_Form
         $poster->setLabel('Poster');
         
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('value', 'Enviar');
+        $submit->setLabel('Enviar')
+                ->setAttrib('class', 'btn btn-default btn-xs');
         
         $this->addElements(array($id, $nome, $produtora_id, $genero_id, $ano, $sinopse, $poster, $submit));
         //$produtora_id->addMultiOption($produtoras);

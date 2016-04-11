@@ -20,7 +20,8 @@ class Application_Form_Genero extends Zend_Form
                 ->setAttrib('rows', 5);
         
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setAttrib('value', 'Enviar');
+        $submit->setLabel('Enviar')
+                ->setAttrib('class', 'btn btn-default btn-xs');
         
         $this->addElements(array($id, $nome, $descricao, $submit));
     }
