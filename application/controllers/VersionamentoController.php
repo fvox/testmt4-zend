@@ -70,8 +70,23 @@ class VersionamentoController extends Zend_Controller_Action
         }
     }
 
+    public function diffAction()
+    {
+        $filename = $this->getRequest()->getParam('file');
+        
+        // Obtendo o path de arquivos versionados.
+        $config         = $this->getFrontController()->getParam('bootstrap');
+        $versioning     = $config->getOption('versioning');
+        $versioningPath = $versioning['path'];
+
+        $files = glob($versioningPath . "/*_" . $filename);
+        print_r($files);
+    }
+
 
 }
+
+
 
 
 

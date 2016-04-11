@@ -40,6 +40,7 @@
         <controllerFile controllerName="Versionamento">
           <actionMethod actionName="index"/>
           <actionMethod actionName="cadastrar"/>
+          <actionMethod actionName="diff"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -124,6 +125,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Versionamento">
             <viewScriptFile forActionName="cadastrar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Versionamento">
+            <viewScriptFile forActionName="diff"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

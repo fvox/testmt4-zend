@@ -3,7 +3,7 @@
     <h2>Arquivos versionados</h2>
         
         <?php foreach ($this->files as $file): ?>
-            <a href="<?php echo $this->url(array('controller' => 'versionamento', 'action' => 'visualizar', 'file' => $file)) ?>"><?php echo $file ?></a><br/>
+            <a href="<?php echo $this->url(array('controller' => 'versionamento', 'action' => 'diff', 'file' => $file)) ?>"><?php echo $file ?></a><br/>
         <?php endforeach; ?>
         <br/>
         <a class="btn btn-default" href="<?php echo $this->url(array('controller' => 'versionamento', 'action' => 'cadastrar')) ?>">Novo</a>
