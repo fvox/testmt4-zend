@@ -36,6 +36,38 @@ class VersionamentoController extends Zend_Controller_Action
     {
         $form = new Application_Form_Versionamento();
         $this->view->form = $form;
+        
+        if ($this->getRequest()->isPost()) {
+            $formData = $this->getRequest()->getPost();
+            
+            if ($form->isValid($formData)) {
+                // Obtendo o path de versionamento do application.ini.
+                $config     = $this->getFrontController()->getParam('bootstrap');
+                $versioning = $config->getOption('versioning');
+                $outputPath = $versioning['path'];
+                
+                $host     = $form->getValue('host');
+                $port     = $form->getValue('port');
+                $user     = $form->getValue('user');
+                $passwd   = $form->getValue('password');
+                $filepath = $form->getValue('filepath');
+                
+                $ssh = new Application_SSH();
+
+                $ssh->setHost($host);
+                $ssh->setPort($port);
+                $ssh->setUser($user);
+                $ssh->setPassword($passwd);
+                $ssh->setOutputPath($outputPath);
+
+                $ssh->versionateFile($filepath);
+                
+                return $this->_helper->redirector('index');
+            }
+            else {
+                $form->populate($formData);
+            }
+        }
     }
 
 
