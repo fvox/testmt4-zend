@@ -37,11 +37,16 @@
         <controllerFile controllerName="Acesso">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Versionamento">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="cadastrar"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Produtora"/>
         <formFile formName="Genero"/>
         <formFile formName="Filme"/>
+        <formFile formName="Versionamento"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -113,6 +118,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Filme">
             <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Versionamento">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Versionamento">
+            <viewScriptFile forActionName="cadastrar"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
