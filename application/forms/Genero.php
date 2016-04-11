@@ -16,7 +16,8 @@ class Application_Form_Genero extends Zend_Form
         
         $descricao = new Zend_Form_Element_Textarea('descricao');
         $descricao->setRequired(true)
-                ->setLabel('Descrição');
+                ->setLabel('Descrição')
+                ->setAttrib('rows', 5);
         
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setAttrib('value', 'Enviar');
