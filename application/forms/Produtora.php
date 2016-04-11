@@ -23,14 +23,12 @@ class Application_Form_Produtora extends Zend_Form
         $descricao->setRequired(true)
                 ->setLabel('Descrição')
                 ->setAttrib('rows', 5);
-        
+
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setLabel('Enviar')
                 ->setAttrib('class', 'btn btn-default btn-xs');
         
         $this->addElements(array($id, $nome, $logo, $descricao, $submit));
     }
-
-
 }
 
