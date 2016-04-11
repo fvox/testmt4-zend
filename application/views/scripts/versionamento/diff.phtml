@@ -1,4 +1,53 @@
 <br /><br />
+<link rel="stylesheet" type="text/css" href="http://cemerick.github.io/jsdifflib/diffview.css"/>
+<script src="http://cemerick.github.io/jsdifflib/diffview.js" ></script>
+<script src="http://cemerick.github.io/jsdifflib/difflib.js" ></script>
+
 <div id="view-content">
-	<p>View script for controller <b>Versionamento</b> and script/action name <b>diff</b></p>
+    <table border="1">
+        <tr id="diff_header"></tr>
+        <tr id="diff_content"></tr>
+    </table>
 </div>
+<script type="text/javascript">
+    var versions = {
+        <?php foreach($this->diffData as $file => $content):
+            echo "'" . $file . "' : " . json_encode($content) . ",";
+        endforeach; ?>
+    };
+
+    var versionKeys = Object.keys(versions);
+    var texts = {};
+    for (var i = 0 ; i < (versionKeys.length - 1); i++){
+        var v1 = versionKeys[i];
+        var v2 = versionKeys[i+1];
+        var text1 = versions[v1];
+        var text2 = versions[v2];
+
+        var par1 = difflib.stringAsLines(text1);
+        var par2 = difflib.stringAsLines(text2);
+        var sm = new difflib.SequenceMatcher(par1, par2);
+        var opcodes = sm.get_opcodes();
+
+        texts[v1] = jQuery('<pre>' + text1 + '</pre>');
+        texts[v1 + ' - ' + v2] = diffview.buildView({
+            baseTextLines: par1,
+            newTextLines: par2,
+            opcodes: opcodes,
+            baseTextName: v1,
+            newTextName: v2,
+            contextSize: null,
+            viewType: 1
+        });
+        texts[v2] = jQuery('<pre>' + text2 + '</pre>');
+    }
+
+    for (var v in texts) {
+        var node = texts[v];
+        jQuery('#diff_header').append('<th>' + v + '</th>');
+
+        var td = jQuery('<td></td>').append(node);
+        jQuery('#diff_content').append(td);
+    }
+</script>
+
