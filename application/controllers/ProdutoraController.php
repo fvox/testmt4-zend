@@ -53,8 +53,7 @@ class ProdutoraController extends Zend_Controller_Action
         $row = $produtora->fetchRow(array('id = ?' => $id))->toArray();
         
         if (!$row) {
-            //throw new Exception("Produtora não encontrada.");
-            exit();
+            throw new Exception("Produtora não encontrada.");
         }
         
         $logo = $row['logo'];

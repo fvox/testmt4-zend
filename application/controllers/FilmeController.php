@@ -57,7 +57,7 @@ class FilmeController extends Zend_Controller_Action
         $row = $filme->fetchRow(array('id = ?' => $id))->toArray();
 
         if (!$row) {
-            exit();
+            throw new Exception("Poster não encontrado.");
         }
         
         $poster = $row['poster'];
