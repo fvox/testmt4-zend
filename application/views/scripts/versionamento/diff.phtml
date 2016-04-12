@@ -10,11 +10,7 @@
     </table>
 </div>
 <script type="text/javascript">
-    var versions = {
-        <?php foreach($this->diffData as $file => $content):
-            echo "'" . $file . "' : " . json_encode($content) . ",";
-        endforeach; ?>
-    };
+    var versions = <?php echo json_encode($this->diffData) ?>;
 
     var versionKeys = Object.keys(versions);
     var texts = {};
